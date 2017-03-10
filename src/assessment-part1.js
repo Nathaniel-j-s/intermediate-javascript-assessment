@@ -44,26 +44,38 @@ function daBears(){
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale1 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+fairyTale1.shift();
+fairyTale1.pop();
+fairyTale1.pop();
 
 // Which function(s) access the "feeling" variable and get "Hungry"
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale2 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+fairyTale2.shift();
+fairyTale2.shift();
+fairyTale2.shift();
+fairyTale2.shift();
 
 // Which function(s) access the "porridge" variable and get "Too Cold!"
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale3 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+fairyTale3.splice(0,2);
+fairyTale3.pop();
+fairyTale3.pop();
 
 // Which function(s) access the "sleepy" variable and get undefined
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale4 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+fairyTale4.splice(3,1);
 
 // Which function(s) access the isFurry variable and get true
 // (Delete wrong answers, leave correct ones)
 
 var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
+fairyTale5.pop();
 
 
 // *************
@@ -82,9 +94,18 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // "charger" once, and invoke it twice on "mustang".
 
 // CODE HERE...
+function Vehicle() {
+  this.gasRemaining = 100;
+};
+Object.prototype.drive = function() {
+  this.gasRemaining = this.gasRemaining - 25;
+};
 
-
-
+var charger = new Vehicle();
+charger.drive();
+var mustang = new Vehicle();
+mustang.drive();
+mustang.drive();
 
 
 // -----------------------------------------------------------------------------
@@ -104,11 +125,10 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // Your method may be passed punctuation, numbers or other non-letter characters
 // and should neither modify them nor break when encountering them.
 
-
-
-
 // CODE HERE...
-
+String.prototype.grammarPolice = function(str) {
+  return this.toLowerCase().replace(/\b[a-z]/g, function backUp(words) {return words.toUpperCase();});
+};
 
 
 // *************
@@ -126,7 +146,15 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 // In all other cases, return "Different values"
 
 // CODE HERE...
-
+function valueType(param1, param2) {
+  if (param1 === param2) {
+    return "Exactly the same";
+  } else if (param1 == param2) {
+    return "Same value, different types";
+  } else {
+    return "Different values";
+  }
+};
 
 
 // *************
@@ -141,3 +169,8 @@ var fairyTale5 = ["daBears", "papaBear", "mamaBear", "babyBear", "goldilocks"];
 var theAnswer = "Unknown";
 
 // CODE HERE...
+function promiseCatcher(promDate) {
+  promDate.then(function() {
+    theAnswer = promDate.valueOf();
+  });
+};
